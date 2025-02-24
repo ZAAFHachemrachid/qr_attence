@@ -1,12 +1,11 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
-import '../supabase/supabase_config.dart';
 
 abstract class BaseRepository<T> {
   final String tableName;
 
   BaseRepository(this.tableName);
 
-  SupabaseClient get _client => SupabaseConfig.client;
+  SupabaseClient get _client => Supabase.instance.client;
 
   SupabaseQueryBuilder get table => _client.from(tableName);
 
