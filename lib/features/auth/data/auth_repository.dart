@@ -5,6 +5,13 @@ class AuthRepository {
 
   AuthRepository(this._client);
 
+  Future<AuthResponse> signUpWithEmail({
+    required String email,
+    required String password,
+  }) async {
+    return await _client.auth.signUp(email: email, password: password);
+  }
+
   Future<AuthResponse> signInWithEmail({
     required String email,
     required String password,
